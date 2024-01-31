@@ -33,6 +33,7 @@ require("lazy").setup({
                 "rbong/vim-flog",
                 lazy = true,
                 cmd = { "Flog", "Flogsplit", "Floggit" },
-        }
+        },
+        { 'tpope/vim-commentary' },
 })
 
