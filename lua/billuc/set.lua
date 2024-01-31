@@ -30,3 +30,11 @@ vim.opt.updatetime = 50;
 
 vim.opt.colorcolumn = "80";
 
+-- Netrw Config
+
+-- Ensure syncing
+vim.g.netrw_keepdir = 0;
+-- Netrw window takes 20% of buffer
+vim.g.netrw_winsize = 20;
+-- Recursive copy
+vim.g.netrw_localcopydircmd = "cp -r";
