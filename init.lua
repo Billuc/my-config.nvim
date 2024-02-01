@@ -35,5 +35,13 @@ require("lazy").setup({
                 cmd = { "Flog", "Flogsplit", "Floggit" },
         },
         { 'tpope/vim-commentary' },
+        {
+                "folke/trouble.nvim",
+                dependencies = { "nvim-tree/nvim-web-devicons" },
+                opts = {
+                        position = "right",
+                        width = 50,
+                }
+        },
 })
 
