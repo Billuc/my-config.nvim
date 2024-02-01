@@ -4,7 +4,7 @@ vim.opt.relativenumber = true;
 -- Tabs
 vim.opt.tabstop = 4;
 vim.opt.softtabstop = 4;
-vim.shiftwidth = 4;
+vim.opt.shiftwidth = 4;
 vim.opt.expandtab = true;
 
 -- Smart Indenting
@@ -38,3 +38,4 @@ vim.g.netrw_keepdir = 0;
 vim.g.netrw_winsize = 20;
 -- Recursive copy
 vim.g.netrw_localcopydircmd = "cp -r";
+
