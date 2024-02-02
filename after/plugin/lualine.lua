@@ -1,5 +1,13 @@
 require('lualine').setup({
     options = {
-        theme = 'tokyonight'
+        theme = 'tokyonight',
+    },
+    sections = {
+        lualine_c = {
+            {
+                'filename',
+                path = 3
+            }
+        }
     },
 });
