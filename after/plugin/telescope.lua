@@ -13,7 +13,7 @@ end)
 vim.keymap.set('n', '<leader>gj', builtin.git_status, {});
 vim.keymap.set('n', '<leader>gh', builtin.git_bcommits, {});
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {});
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, {});
+-- vim.keymap.set('n', '<leader>gc', builtin.git_commits, {});
 
 -- Treesitter
 vim.keymap.set('n', '<leader>ts', builtin.treesitter, {});
