@@ -46,5 +46,21 @@ require("lazy").setup({
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
     { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
+    {
+        'linux-cultist/venv-selector.nvim',
+        dependencies = {
+            'neovim/nvim-lspconfig',
+            'nvim-telescope/telescope.nvim',
+            'mfussenegger/nvim-dap-python'
+        },
+        opts = {},
+        event = "VeryLazy",
+        keys = {
+            { '<leader>vs', '<cmd>VenvSelect<CR>' },
+            { '<leader>vc', '<cmd>VenvSelectCached<CR>' },
+        },
+    },
+    { 'stevearc/conform.nvim', opts = {}, },
+    { 'nvim-tree/nvim-tree.lua' },
 })
 

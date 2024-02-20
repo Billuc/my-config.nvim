@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>=", "ggVG=<C-o>");
+-- vim.keymap.set("n", "<leader>=", "ggVG=<C-o>");
