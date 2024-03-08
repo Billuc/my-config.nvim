@@ -4,10 +4,8 @@ require('lualine').setup({
     },
     sections = {
         lualine_c = {
-            {
-                'filename',
-                path = 3
-            }
+            { "%=", separator = { left = '' } },
+            { 'filename', path = 3 }
         }
     },
 });

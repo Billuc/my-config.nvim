@@ -1,4 +1,4 @@
-require("toggleterm").setup({ direction = 'float' });
+require("toggleterm").setup({ direction = 'tab' });
 
 vim.keymap.set("t", "<C-t>", vim.cmd.ToggleTerm);
 vim.keymap.set("n", "<C-t>", vim.cmd.ToggleTerm);

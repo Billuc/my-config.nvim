@@ -1,6 +1,7 @@
-vim.keymap.set("n", "<leader>gs", ":Git<CR><C-w>J:10wincmd_<CR>");
+-- vim.keymap.set("n", "<leader>gg", ":Git<CR><C-w>J:10wincmd_<CR>");
 
-vim.keymap.set("n", "<leader>gp", ":Git push<CR>");
+-- Fugitive
+vim.keymap.set("n", "<leader>gp", function() vim.cmd("Git push"); end);
 
 vim.keymap.set("n", "<leader>ga", function()
     vim.cmd("Git add --all");
@@ -16,4 +17,15 @@ vim.keymap.set("n", "<leader>gc", function()
     end
 
     vim.cmd(string.format('Git commit -m "%s"', commitName));
+end);
+
+-- Flog
+vim.keymap.set("n", "<leader>gb", function()
+    local bufname = vim.fn.expand("%");
+
+    if (string.find(bufname, "flog")) then
+        vim.cmd("bd") -- Closes current buffer
+    else
+        vim.cmd("Flog");
+    end
 end);
