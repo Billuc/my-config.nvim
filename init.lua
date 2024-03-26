@@ -1,5 +1,6 @@
 require("billuc.remap")
 require("billuc.lazy")
+require("billuc.lazygit")
 require("billuc.set")
 
 require("lazy").setup({

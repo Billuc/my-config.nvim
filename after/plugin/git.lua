@@ -20,12 +20,13 @@ vim.keymap.set("n", "<leader>gc", function()
 end);
 
 -- Flog
-vim.keymap.set("n", "<leader>gb", function()
-    local bufname = vim.fn.expand("%");
+-- vim.keymap.set("n", "<leader>gb", function()
+--     local bufname = vim.fn.expand("%");
 
-    if (string.find(bufname, "flog")) then
-        vim.cmd("bd") -- Closes current buffer
-    else
-        vim.cmd("Flog");
-    end
-end);
+--     if (string.find(bufname, "flog")) then
+--         vim.cmd("bd") -- Closes current buffer
+--     else
+--         vim.cmd("Flog");
+--     end
+-- end);
+
