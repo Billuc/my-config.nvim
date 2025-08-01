@@ -33,14 +33,27 @@ vim.opt.colorcolumn = "80";
 -- Netrw Config
 
 -- Ensure syncing
--- vim.g.netrw_keepdir = 0;
+vim.g.netrw_keepdir = 0;
 -- Netrw window takes 20% of buffer
--- vim.g.netrw_winsize = 20;
+vim.g.netrw_winsize = 15;
 -- Recursive copy
--- vim.g.netrw_localcopydircmd = "cp -r";
+vim.g.netrw_localcopydircmd = "cp -r";
 
--- Disable Netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- Disable mouse
+vim.opt.mouse = "";
 
-vim.opt.termguicolors = true
+-- WSL clipboard
+if vim.fn.has('wsl') then
+    vim.g.clipboard = {
+        name = "WslClipboard",
+        copy = {
+            ["+"] = "clip.exe",
+            ["*"] = "clip.exe",
+        },
+        paste = {
+            ["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ["*"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+    }
+end
