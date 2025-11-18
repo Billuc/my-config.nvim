@@ -1,3 +1,5 @@
+-- Language server configurations : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+
 return {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
@@ -10,24 +12,13 @@ return {
         { "<leader>ld", function() vim.diagnostic.open_float() end, desc = "Open diagnostic under cursor" },
         { "<leader>la", function() vim.lsp.buf.code_action() end, desc = "Open code actions" },
         { "<leader>lr", function() vim.lsp.buf.rename() end, desc = "Rename symbol" },
+        { "]d", function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
+        { "[d", function() vim.diagnostic.goto_prev() end, desc = "Previous diagnostic" },
+        { "<leader>k", function() vim.lsp.buf.hover() end, desc = "Hover definition" },
+        { "gd", function() vim.lsp.buf.definition() end, desc = "Goto definition" },
+        { "gr", function() vim.lsp.buf.references() end, desc = "Goto references" },
     },
 }
 
---   local lsp_zero = require('lsp-zero')
---
---   lsp_zero.preset("recommended")
---
--- H lsp_zero.on_attach(function(client, bufnr)
---     local opts = {buffer = bufnr, remap = false}
---
--- W   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
--- W   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 -- W   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
--- W   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
--- W   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
--- W   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
--- W   vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
--- W   vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
--- W   vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
 -- W   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
---   end)

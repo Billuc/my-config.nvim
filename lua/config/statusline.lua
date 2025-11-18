@@ -1,31 +1,47 @@
 -- Inspiration : https://nuxsh.is-a.dev/blog/custom-nvim-statusline.html
+-- Mode Color : https://www.reddit.com/r/neovim/comments/tz6p7i/how_can_we_set_color_for_each_part_of_statusline/
 
 local modes = {
-  ["n"] = "NORMAL",
-  ["no"] = "NORMAL",
-  ["v"] = "VISUAL",
-  ["V"] = "VISUAL LINE",
-  [""] = "VISUAL BLOCK",
-  ["s"] = "SELECT",
-  ["S"] = "SELECT LINE",
-  [""] = "SELECT BLOCK",
-  ["i"] = "INSERT",
-  ["ic"] = "INSERT",
-  ["R"] = "REPLACE",
-  ["Rv"] = "VISUAL REPLACE",
-  ["c"] = "COMMAND",
-  ["cv"] = "VIM EX",
-  ["ce"] = "EX",
-  ["r"] = "PROMPT",
-  ["rm"] = "MOAR",
-  ["r?"] = "CONFIRM",
-  ["!"] = "SHELL",
-  ["t"] = "TERMINAL",
+  ["n"] = { text="NORMAL", highlight="NormalMode" },
+  ["no"] = { text="NORMAL", highlight="NormalMode" },
+  ["v"] = { text="VISUAL", highlight="VisualMode" },
+  ["V"] = { text="VISUAL LINE", highlight="VisualMode" },
+  [""] = { text="VISUAL BLOCK", highlight="VisualMode" },
+  ["s"] = { text="SELECT", highlight="" },
+  ["S"] = { text="SELECT LINE", highlight="" },
+  [""] = { text="SELECT BLOCK", highlight="" },
+  ["i"] = { text="INSERT", highlight="InsertMode" },
+  ["ic"] = { text="INSERT", highlight="InsertMode" },
+  ["R"] = { text="REPLACE", highlight="ReplacelMode" },
+  ["Rv"] = { text="VISUAL REPLACE", highlight="ReplacelMode" },
+  ["c"] = { text="COMMAND", highlight="CommandMode" },
+  ["cv"] = { text="VIM EX", highlight="" },
+  ["ce"] = { text="EX", highlight="" },
+  ["r"] = { text="PROMPT", highlight="" },
+  ["rm"] = { text="MOAR", highlight="" },
+  ["r?"] = { text="CONFIRM", highlight="" },
+  ["!"] = { text="SHELL", highlight="" },
+  ["t"] = { text="TERMINAL", highlight="" },
 }
 
 local function mode() 
     local current_mode = vim.api.nvim_get_mode().mode
-    return string.format(" %s ", modes[current_mode]):upper()
+    local highlight_start
+    local highlight_end
+
+    if modes[current_mode].highlight == "" then
+        highlight_start = ""
+        highlight_end = ""
+    else
+        highlight_start = string.format("%%#%s#", modes[current_mode].highlight)
+        highlight_end = "%*"
+    end
+    return string.format(
+        "%s %s %s", 
+        highlight_start,
+        modes[current_mode].text:upper(),
+        highlight_end
+    )
 end
 
 local function filepath()
