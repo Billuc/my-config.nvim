@@ -10,6 +10,7 @@ return {
 			json = { "biome", "prettierd", "prettier" },
 			jsx = { "biome", "prettierd", "prettier" },
 			tsx = { "biome", "prettierd", "prettier" },
+			svelte = { "prettier-plugin-svelte" },
 			lua = { "stylua" },
 		},
 		default_format_opts = {

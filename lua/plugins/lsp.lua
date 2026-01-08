@@ -5,7 +5,10 @@ return {
     event = "VeryLazy",
     init = function()
         vim.lsp.enable({
-            "lua_ls"
+            "lua_ls", -- Prerequisite : Install lua_ls (https://luals.github.io/#neovim-install)
+            "rust_analyzer", -- Prerequisite : Install rust_analyzer (https://rust-analyzer.github.io/book/rust_analyzer_binary.html)
+            "ts_ls", -- Prerequisite : Install typescript & typescript-language-server (npm install -g typescript typescript-language-server)
+            "svelte", -- Prerequisite : Install svelte-language-server (npm install -g svelte-language-server)
         })
     end,
     keys = {
@@ -22,3 +25,5 @@ return {
 
 -- W   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 -- W   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+--
+
