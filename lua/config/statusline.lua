@@ -21,7 +21,8 @@ local modes = {
   ["rm"] = { text="MOAR", highlight="" },
   ["r?"] = { text="CONFIRM", highlight="" },
   ["!"] = { text="SHELL", highlight="" },
-  ["t"] = { text="TERMINAL", highlight="" },
+  ["t"] = { text="TERMINAL", highlight="TermCursor" },
+  ["nt"] = { text="NORMAL TERMINAL", highlight="StatusLineTerm" },
 }
 
 local function mode() 
