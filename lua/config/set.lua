@@ -32,12 +32,31 @@ vim.opt.colorcolumn = "80";
 
 -- Netrw Config
 
--- Ensure syncing
-vim.g.netrw_keepdir = 0;
--- Netrw window takes 20% of buffer
-vim.g.netrw_winsize = 15;
--- Recursive copy
+---- Netrw window takes 20% of buffer
+vim.g.netrw_winsize = 20;
+---- Recursive copy
 vim.g.netrw_localcopydircmd = "cp -r";
+---- Highlight marked files
+vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" });
+---- Show netrw path
+vim.opt.hidden = false;
+---- Ensure syncing of current directory between netrw and vim
+-- vim.g.netrw_keepdir = 0;
+---- Disable autochdir to avoid changing directory automatically
+vim.opt.autochdir = false;
+---- Autocmd to sync current directory when opening nvim
+vim.api.nvim_create_autocmd('VimEnter', {
+    desc = 'cd to directory passed as argument when vim starts',
+    group = vim.api.nvim_create_augroup('cd-to-pwd', { clear = true }),
+    callback = function ()
+        local bufname = vim.api.nvim_buf_get_name(0);
+        local last_slash = string.match(bufname, ".*[\\|/]()") - 1;
+        local cwd = string.sub(bufname, 1, last_slash);
+        vim.api.nvim_set_current_dir(cwd)
+    end,
+});
+
+--
 
 -- Disable mouse
 vim.opt.mouse = "";
